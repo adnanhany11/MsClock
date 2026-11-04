@@ -16,15 +16,10 @@ jobs:
         run: npm install -g cordova
       - name: Create App
         run: cordova create app com.adnan.masjidclock MasjidClock
-      - name: Smart Copy Files
+      - name: Copy HTML File
         run: |
-          if [ -f "index.html" ]; then
-            cp index.html app/www/
-          elif [ -f "src/index.html" ]; then
-            cp src/index.html app/www/
-          fi
+          cp index.html app/www/
           if [ -d "sounds" ]; then cp -r sounds app/www/; fi
-          if [ -d "src/sounds" ]; then cp -r src/sounds app/www/; fi
       - name: Build APK
         run: |
           cd app
